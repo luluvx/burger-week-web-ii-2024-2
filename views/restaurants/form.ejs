@@ -1,0 +1,70 @@
+<%- include('../../components/header.ejs') %>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-8 col-sm-10 col-xxl-4">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Formulario de restaurantes</h5>
+                        <form class="needs-validation" method="post" action="">
+                            <% if (errors) { %>
+                                <div class="alert alert-warning">
+                                    <%= errors.message%>
+                                </div>
+                                <% } %>
+                                    <div class="mt-2 has-validation">
+                                        <label>Name</label>
+                                        <input required class="form-control" type="text" name="name"
+                                            placeholder="Nombre" value="<%=restaurant && restaurant.name %>">
+                                        <%if (errors?.name) {%>
+                                            <div class="error-label">
+                                                Por favor ingrese un nombre
+                                            </div>
+                                            <% } %>
+
+                                    </div>
+                                    <div class="mt-2">
+                                        <label>Description</label>
+                                        <input required class="form-control" type="text" name="description"
+                                            placeholder="Description" value="<%=restaurant && restaurant.description %>">
+                                        <%if (errors?.description) {%>
+
+                                            <div class="error-label">
+                                                Por favor ingrese una descripcion
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <div class="mt-2">
+                                        <label>Direccion</label>
+                                        <input required class="form-control" type="text" name="direction"
+                                            placeholder="Direccion" value="<%=restaurant && restaurant.direction %>">
+                                        <%if (errors?.direction) {%>
+
+                                            <div class="error-label">
+                                                Por favor ingrese una direction
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <div class="mt-2">
+                                        <label>Phone</label>
+                                        <input required class="form-control" type="number" name="phone"
+                                            placeholder="Phone" value="<%=restaurant && restaurant.phone %>">
+                                        <%if (errors?.phone) {%>
+
+                                            <div class="error-label">
+                                                Por favor ingrese un Phone
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    
+                                    <div class="mt-2">
+                                        <input class="btn btn-primary" type="submit" value="Enviar">
+                                    </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../../components/footer.ejs') %>
